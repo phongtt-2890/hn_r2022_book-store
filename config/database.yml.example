@@ -1,0 +1,21 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8mb4
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username:
+  password:
+  socket: /var/run/mysqld/mysqld.sock
+
+development:
+  <<: *default
+  database: hn_r2022_book_store_development
+
+test:
+  <<: *default
+  database: hn_r2022_book_store_test
+
+production:
+  <<: *default
+  database: hn_r2022_book_store_production
+  username: hn_r2022_book_store
+  password: <%= ENV["HN_R2022_BOOK_STORE_DATABASE_PASSWORD"] %>
