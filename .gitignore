@@ -84,3 +84,4 @@ yarn-debug.log*
 .framgia-ci-result.temp.yml
 /config/application.yml
 .browserslistrc
+/spec/
