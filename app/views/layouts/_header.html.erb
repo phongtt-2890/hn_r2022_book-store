@@ -1,0 +1,54 @@
+<div class="header">
+	<div class="top-header">
+		<div class="container">
+			<div class="top-header-left">
+				<ul class="support">
+					<li><a href="#"><label> </label></a></li>
+					<li>
+						<%= link_to t("24_7_support"), "#" %>
+					</li>
+				</ul>
+				<ul class="support">
+					<li class="van"><a href="#"><label> </label></a></li>
+				</ul>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="top-header-right">
+				<%= link_to t("english"), locale: :en %>
+				<%= link_to t("vietnamese"), locale: :vi %>
+				<!---->
+				<div class="clearfix"> </div>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+	<div class="bottom-header">
+		<div class="container">
+			<div class="header-bottom-left">
+				<div class="logo">
+					<%= link_to image_tag("logo.png", alt: "Logo", id: "logo"), "#" %>
+				</div>
+				<div class="search">
+					<input type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" >
+					<input type="submit"  value="SEARCH">
+
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="header-bottom-right">
+				<div class="account">
+					<%= link_to t("discount"), "#" %>
+				</div>
+				<ul class="login">
+					<li><%= link_to t("login"), "#" %></li> |
+					<li ><%= link_to t("signup"), "#" %></li>
+				</ul>
+				<div class="cart">
+					<%= link_to t("cart"), "#" %>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+</div>

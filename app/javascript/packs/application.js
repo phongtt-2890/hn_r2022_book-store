@@ -7,6 +7,13 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+require("./jquery.flexisel.js")
+require("./jquery.etalage.min.js")
+require("./jquery.min.js")
+require("./jquery.wmuSlider")
+require("jquery")
+import "bootstrap"
+
 
 Rails.start()
 Turbolinks.start()
