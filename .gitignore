@@ -85,3 +85,7 @@ yarn-debug.log*
 /config/application.yml
 .browserslistrc
 /spec/
+
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml
