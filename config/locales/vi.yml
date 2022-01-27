@@ -1,4 +1,14 @@
 vi:
+  activerecord:
+    models:
+      user: "Người dùng"
+    attributes:
+      user:
+        name: "Tên"
+        email: "Email"
+        phone: "Số điện thoại"
+        password: "Mật khẩu"
+        password_confirmation: "Xác nhận mật khẩu"
   title: "Cửa hàng sách"
   english: "English"
   vietnamese: "Tiếng việt"
@@ -20,3 +30,19 @@ vi:
   top_publisher: "Top nhà xuất bản"
   hot_trend: "Hot trend"
   our_address: "Địa chỉ của chúng tôi"
+  submit_create_user: "Tạo tài khoản"
+  form_errors: "Dữ liệu nhập vào có "
+  error: "Lỗi"
+  create_user_success: "Tạo tài khoản thành công"
+  create_user_fail: "Tạo tài khoản không thành công"
+  password: "Mật khẩu"
+  new_user?: "Chưa có tài khoản? "
+  sign_up_now!: "Đăng ký ngay!"
+  log_out: "Đăng xuất"
+  invalid_email_password: "Email hoặc mật khẩu không chính xác!"
+  remember_me: "Duy trì đăng nhập trên thiết bị này"
+  account: "Tài khoản"
+  profile: "Thông tin"
+  setting: "Cài đặt"
+  log_out: "Đăng xuất"
+  invalid_email_password: "Tài khoản hoặc mật khẩu không đúng!"
