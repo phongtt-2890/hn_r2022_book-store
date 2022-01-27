@@ -7,4 +7,6 @@ class Book < ApplicationRecord
   has_many :authors, through: :book_authors
   has_many :comments, dependent: :destroy
   has_many :rates, dependent: :destroy
+
+  scope :newest, ->{order created_at: :desc}
 end
