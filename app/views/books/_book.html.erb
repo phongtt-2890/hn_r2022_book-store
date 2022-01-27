@@ -1,0 +1,11 @@
+<div class="product-grid">
+  <div class="content_box">
+    <a href="single.html">
+      <div class="left-grid-view grid-view-left">
+        <%= link_to image_tag("pic1.jpg", alt: "product", class: "img-responsive watch-right"), "#" %>
+      </div>
+    </a>
+      <h4><%= link_to book.name %></h4>
+      <span><%= number_to_currency(book.price) %></span>
+  </div>
+</div>
