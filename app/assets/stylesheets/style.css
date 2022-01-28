@@ -926,13 +926,13 @@ a.forgot {
 }
 .checkbox {
   margin-bottom: 4px;
-  padding-left: 27px;
+  padding-left: 12px;
   font-size: 1.2em;
-  line-height: 27px;
+  line-height: 24px;
   cursor: pointer;
 }
 .checkbox {
-  position: relative;
+  display: inline-block;
   font-size: 1em;
   color:#555;
 }

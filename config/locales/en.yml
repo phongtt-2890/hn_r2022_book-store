@@ -1,4 +1,14 @@
 en:
+  activerecord:
+    models:
+      user: "User"
+    attributes:
+      user:
+        name: "Name"
+        email: "Email"
+        phone: "Phone"
+        password: "Password"
+        password_confirmation: "Confirmation"
   title: "Book store"
   english: "English"
   vietnamese: "Tiếng việt"
@@ -20,3 +30,19 @@ en:
   top_publisher: "Top publisher"
   hot_trend: "Hot trend"
   our_address: "Our address"
+  submit_create_user: "Create my account"
+  error: "Error"
+  form_errors: "The form contains "
+  create_user_success: "User created successfully!"
+  create_user_fail: "User created failed!"
+  password: "Password"
+  new_user?: "New user? "
+  sign_up_now!: "Sign Up Now!"
+  log_out: "Log Out"
+  invalid_email_password: "Invalid Email or Password"
+  remember_me: "Remember me on this computer"
+  account: "Account"
+  profile: "Profile"
+  setting: "setting"
+  log_out: "Log Out"
+  invalid_email_password: "Invalid Email or Password"

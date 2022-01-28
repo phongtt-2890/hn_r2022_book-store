@@ -35,3 +35,26 @@ end
               category_id: Faker::Number.between(from: 1, to: 10)
   )
 end
+
+User.create!(name: "Admin",
+  email: "admin@bookstore.com",
+  password: "123123",
+  password_confirmation: "123123",
+  phone: Faker::PhoneNumber.phone_number,
+  admin: true,
+  activated: true,
+  activated_at: Time.zone.now)
+
+50.times do |n|
+  name = Faker::Name.name
+  email = "example-#{n+1}@railstutorial.org"
+  password = "password"
+  User.create!(name: name,
+               email: email,
+               password: password,
+               password_confirmation: password,
+               phone: Faker::PhoneNumber.phone_number,
+               activated: true,
+               activated_at: Time.zone.now
+  )
+end
