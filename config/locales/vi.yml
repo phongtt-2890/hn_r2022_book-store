@@ -2,6 +2,9 @@ vi:
   activerecord:
     models:
       user: "Người dùng"
+      book: "Sách"
+      publisher: "Nhà phát hành"
+      category: "Danh mục"
     attributes:
       user:
         name: "Tên"
@@ -9,6 +12,21 @@ vi:
         phone: "Số điện thoại"
         password: "Mật khẩu"
         password_confirmation: "Xác nhận mật khẩu"
+      book:
+        name: "Tên sách"
+        description: "Mô tả"
+        num_pages: "Số trang"
+        price: "Giá"
+        publish_year: "Năm phát hành"
+        quantity: "Số lượng"
+      publisher:
+        name: "Tên nhà phát hành"
+        address: "Địa chỉ"
+        phone: "Điện thoại"
+        website: "Website"
+      category:
+        name: "Tên danh mục"
+        description: "Mô tả"
   title: "Cửa hàng sách"
   english: "English"
   vietnamese: "Tiếng việt"
@@ -46,3 +64,11 @@ vi:
   setting: "Cài đặt"
   log_out: "Đăng xuất"
   invalid_email_password: "Tài khoản hoặc mật khẩu không đúng!"
+  add_to_cart: "THÊM VÀO GIỎ"
+  item: "mặt hàng"
+  in_stock: "trong kho"
+  page: "trang"
+  publisher: "Nhà phát hành"
+  publish_year: "Năm phát hành"
+  product_detail: "Mô tả sản phẩm"
+  author: "Tác giả"
