@@ -13,8 +13,6 @@ require("./jquery.min.js")
 require("./jquery.wmuSlider")
 require("jquery")
 import "bootstrap"
-
-
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()

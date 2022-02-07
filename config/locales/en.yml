@@ -2,6 +2,9 @@ en:
   activerecord:
     models:
       user: "User"
+      book: "Book"
+      publisher: "Publisher"
+      category: "Category"
     attributes:
       user:
         name: "Name"
@@ -9,6 +12,21 @@ en:
         phone: "Phone"
         password: "Password"
         password_confirmation: "Confirmation"
+      book:
+        name: "Book title"
+        description: "Description"
+        num_pages: "Number of pages"
+        price: "Price"
+        publish_year: "Publish Year"
+        quantity: "Quantity"
+      publisher:
+        name: "Publisher"
+        address: "Address"
+        phone: "Phone"
+        website: "Website"
+      category:
+        name: "Category"
+        description: "Description"
   title: "Book store"
   english: "English"
   vietnamese: "Tiếng việt"
@@ -46,3 +64,11 @@ en:
   setting: "setting"
   log_out: "Log Out"
   invalid_email_password: "Invalid Email or Password"
+  add_to_cart: "ADD TO CART"
+  item: "Item"
+  in_stock: "in stock"
+  page: "Page"
+  publisher: "Publisher"
+  publish_year: "Publish year"
+  product_detail: "Product detail"
+  author: "Author"

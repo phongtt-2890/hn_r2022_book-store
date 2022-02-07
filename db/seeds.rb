@@ -31,8 +31,8 @@ end
               price: price,
               publish_year: publish_year,
               quantity: quantity,
-              publisher_id: Faker::Number.between(from: 1, to: 10),
-              category_id: Faker::Number.between(from: 1, to: 10)
+              publisher_id: Publisher.all.pluck(:id).sample,
+              category_id: Category.all.pluck(:id).sample
   )
 end
 
@@ -56,5 +56,17 @@ User.create!(name: "Admin",
                phone: Faker::PhoneNumber.phone_number,
                activated: true,
                activated_at: Time.zone.now
+  )
+end
+
+20.times do
+  Author.create!(name: Faker::Name.name,
+                 description: Faker::Lorem.sentence(word_count: 30)
+  )
+end
+
+50.times do
+  BookAuthor.create!(author_id: Author.all.pluck(:id).sample,
+                     book_id: Book.all.pluck(:id).sample
   )
 end

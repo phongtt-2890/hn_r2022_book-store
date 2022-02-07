@@ -1,5 +1,6 @@
 class Book < ApplicationRecord
   belongs_to :publisher
+  delegate :name, to: :publisher, prefix: true, allow_nil: true
   belongs_to :category
   has_many :order_details, dependent: :destroy
   has_many :orders, through: :order_details

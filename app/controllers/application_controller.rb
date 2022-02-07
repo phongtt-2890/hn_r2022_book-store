@@ -19,4 +19,12 @@ class ApplicationController < ActionController::Base
     flash[:danger] = t "user_not_found"
     redirect_to root_path
   end
+
+  def load_book
+    @book = Book.find_by id: params[:id]
+    return if @book
+
+    flash[:danger] = t "book_not_found"
+    redirect_to root_path
+  end
 end
