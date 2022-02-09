@@ -108,6 +108,7 @@ ActiveRecord::Schema.define(version: 2022_01_26_174316) do
   create_table "order_details", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "order_quantity"
     t.decimal "price_at_order", precision: 10
+    t.decimal "total_price", precision: 8, scale: 2, default: "0.0"
     t.bigint "book_id", null: false
     t.bigint "order_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -117,8 +118,8 @@ ActiveRecord::Schema.define(version: 2022_01_26_174316) do
   end
 
   create_table "orders", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.datetime "order_date"
-    t.string "status"
+    t.decimal "total_price", precision: 8, scale: 2, default: "0.0"
+    t.integer "status", default: 0
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
