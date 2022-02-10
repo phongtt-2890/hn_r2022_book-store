@@ -1,0 +1,24 @@
+<h3><%= t "order_info" %></h3>
+<div class="well">
+  <div>
+    <ul>
+      <li>
+        <%= t "order_user_name" %>:
+        <span><%= current_user.name %></span>
+      </li>
+      <li>
+        <%= t "total_payment" %>:
+        <span class="book-price"><%= number_to_currency current_order.total_price %></span>
+      </li>
+      <li>
+        <%= form_for @current_order, url: carts_path do |f| %>
+          <%= f.hidden_field :status, value: Order.statuses["in_progress"] %>
+          <%= select_tag "delivery_address",
+              options_from_collection_for_select(current_user.addresses.all, :address, :address),
+              class: "form-control" %>
+          <%= f.submit t("place_order"), class: "btn btn-primary place-order-btn" %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>

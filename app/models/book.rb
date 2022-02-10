@@ -10,4 +10,8 @@ class Book < ApplicationRecord
   has_many :rates, dependent: :destroy
 
   scope :newest, ->{order created_at: :desc}
+
+  validates :quantity,
+            numericality: {greater_than_or_equal_to: Settings.min_quantity,
+                           less_than: Settings.max_quantity}
 end

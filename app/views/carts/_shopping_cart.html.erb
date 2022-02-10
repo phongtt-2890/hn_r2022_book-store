@@ -1,4 +1,9 @@
-<h4><%= t"cart" %></h4>
+<h3><%= t"cart" %></h3>
+<div class="cart-title">
+  <h5 class="info-title"><%= t ".book_info" %></h5>
+  <h5 class="quantity-title"><%= t ".amount" %></h5>
+  <h5 class="option-title"><%= t ".option" %></h5>
+</div>
 <% @order_details.each do |od| %>
-  <%= render "carts/cart_row", book: od.book, order_detail: od, show_total: true %>
+  <%= render "carts/cart_row", book: od.book, order_detail: od %>
 <% end %>
