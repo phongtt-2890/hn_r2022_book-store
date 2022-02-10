@@ -1,0 +1,7 @@
+<div class="nested-fields">
+  <%= f.select "author_id",
+      options_from_collection_for_select(Author.all, "id", "name"),
+      class: "form-control" %>
+  <% f.hidden_field "book_id", value: f %>
+  <%= link_to_remove_association t("remove_author"), f %>
+</div>

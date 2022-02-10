@@ -12,6 +12,7 @@ require("./jquery.etalage.min.js")
 require("./jquery.min.js")
 require("./jquery.wmuSlider")
 require("jquery")
+require("@nathanvda/cocoon")
 import "bootstrap"
 Rails.start()
 Turbolinks.start()

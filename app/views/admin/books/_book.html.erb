@@ -1,0 +1,25 @@
+<tr class="order-details">
+  <td class="order-name">
+    <%= link_to book.name, book %>
+  </td>
+  <td class="order-address">
+    <%= book.quantity %>
+  </td>
+  <td class="order-address">
+    <%= book.publish_year.year %>
+  </td>
+  <td class="order-price">
+    <%= number_to_currency book.price %>
+  </td>
+  <td class="order-price">
+    <%= book.num_pages %>
+  </td>
+  <td class="books-name">
+    <%= book.authors.pluck(:name).join(', ') %>
+  </td>
+   <td>
+    <div><%= link_to t("edit"), edit_admin_book_path(book), class: "btn btn-warning" %></div>
+    <div><%= link_to t("delete"), admin_book_path(book),
+        {data: {confirm: t("delete_confirm")}, method: :delete, remote: true, class: "btn btn-danger"} %></div>
+  </td>
+</tr>

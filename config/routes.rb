@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     namespace :admin do
       root "dashboards#home"
       resources :orders, only: %i(index update destroy)
+      resources :books
     end
   end
 end
