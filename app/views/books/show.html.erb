@@ -19,7 +19,7 @@
           <div class="order-btn">
             <div>
               <%= f.label :order_quantity %>:
-              <%= f.number_field :order_quantity, value: 1, class: "form-control order-quantity", min: 1 %>
+              <%= f.number_field :order_quantity, value: 1, class: "form-control order-quantity", min: 1, max: @book.quantity %>
             </div>
             <%= f.hidden_field :book_id, value: @book.id %>
             <%= f.hidden_field :price_at_order, value: @book.price %>

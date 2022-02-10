@@ -70,3 +70,9 @@ end
                      book_id: Book.all.pluck(:id).sample
   )
 end
+
+50.times do
+  Address.create!(user_id: User.all.pluck(:id).sample,
+                  address: Faker::Address.full_address
+  )
+end

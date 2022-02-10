@@ -15,6 +15,7 @@ class OrderDetailsController < ApplicationController
   def update
     if @order_detail.update order_detail_params
       @order_details = @current_order.order_details
+      @current_order.save
       flash.now[:success] = t "success"
     else
       flash.now[:danger] = t "update_fail"
@@ -24,6 +25,7 @@ class OrderDetailsController < ApplicationController
   def destroy
     if @order_detail.destroy
       @order_details = @current_order.order_details
+      @current_order.save
       flash.now[:success] = t "success"
     else
       flash.now[:danger] = t "delete_fail"

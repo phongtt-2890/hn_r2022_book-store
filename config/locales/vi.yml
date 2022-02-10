@@ -79,8 +79,8 @@ vi:
   total_price: "Tổng tiền"
   delete_confirm: "Bạn có chắc muốn xóa không?"
   success: "Thành công"
-  delete_fail: "Xóa thành công"
-  update_fail: "Cập nhật thành công"
+  delete_fail: "Xóa thất bại"
+  update_fail: "Cập nhật thất bại"
   order_detail_not_found: "Không tìm thấy sản phẩm"
   already_in_cart: "Sản phẩm đã tồn tại trong giỏ hàng!"
   must_login: "Yêu cầu đăng nhập"
@@ -91,3 +91,12 @@ vi:
   categories: "Danh mục"
   pulishers: "Nhà phát hành"
   authors: "Tác giả"
+  total_payment: "Tổng tiền thanh toán"
+  order_user_name: "Người đặt hàng"
+  place_order: "Đặt hàng"
+  order_info: "Thông tin đơn hàng"
+  carts:
+    shopping_cart:
+      amount: "Số lượng"
+      option: "Lựa chọn"
+      book_info: "Thông tin sản phẩm"

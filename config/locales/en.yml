@@ -91,3 +91,12 @@ en:
   categories: "Categories"
   pulishers: "Pulishers"
   authors: "Authors"
+  total_payment: "Total payment"
+  order_user_name: "User name"
+  place_order: "Place Order"
+  order_info: "Order Information"
+  carts:
+    shopping_cart:
+      amount: "Amount"
+      option: "Options"
+      book_info: "Book information"
