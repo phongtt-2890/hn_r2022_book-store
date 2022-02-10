@@ -5,7 +5,7 @@
         <%= link_to image_tag("pic1.jpg", alt: "product", class: "img-responsive watch-right"), book_path(book.id) %>
       </div>
     </a>
-      <h4><%= link_to book.name, book_path(book.id) %></h4>
+      <h4 class="book-title"><%= link_to book.name, book_path(book.id) %></h4>
       <span><%= number_to_currency(book.price) %></span>
   </div>
 </div>

@@ -27,4 +27,11 @@ class ApplicationController < ActionController::Base
     flash[:danger] = t "book_not_found"
     redirect_to root_path
   end
+
+  def check_logged_in
+    return if logged_in?
+
+    flash[:danger] = t "must_login"
+    redirect_to login_path
+  end
 end

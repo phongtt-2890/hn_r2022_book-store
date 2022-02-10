@@ -1,8 +1,8 @@
 class CreateOrders < ActiveRecord::Migration[6.1]
   def change
     create_table :orders do |t|
-      t.datetime :order_date
-      t.string :status
+      t.decimal :total_price, default: 0, precision: 8, scale: 2
+      t.integer :status, default: 0
       t.references :user, null: false, foreign_key: true
 
       t.timestamps

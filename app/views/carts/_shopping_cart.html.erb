@@ -1,0 +1,4 @@
+<h4><%= t"cart" %></h4>
+<% @order_details.each do |od| %>
+  <%= render "carts/cart_row", book: od.book, order_detail: od, show_total: true %>
+<% end %>

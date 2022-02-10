@@ -15,7 +15,17 @@
         <div class="left-n ">
           <%= number_to_currency(@book.price) %>
         </div>
-        <%= link_to t("add_to_cart"), "#", class: "now-get get-cart-in"%>
+        <%= form_for @order_detail, remote: true do |f| %>
+          <div class="order-btn">
+            <div>
+              <%= f.label :order_quantity %>:
+              <%= f.number_field :order_quantity, value: 1, class: "form-control order-quantity", min: 1 %>
+            </div>
+            <%= f.hidden_field :book_id, value: @book.id %>
+            <%= f.hidden_field :price_at_order, value: @book.price %>
+            <%= f.submit t("add_to_cart"), class: "btn btn-primary"%>
+          </div>
+        <% end %>
         <div class="clearfix"></div>
       </div>
       <h6>
