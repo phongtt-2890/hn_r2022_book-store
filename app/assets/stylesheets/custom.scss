@@ -1,9 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
-.btn-primary {
-  margin-top: 12px;
-}
+@import "colors";
 
 .pagy-bootstrap-nav {
   width: 100%;
@@ -15,7 +12,7 @@
     li {
       margin-left: 16px;
       list-style: square;
-      color: #BC5047;
+      color: $error-explanation;
     }
   }
 }
@@ -37,6 +34,33 @@
   }
 }
 
+.main {
+  display: flex;
+  justify-content: space-between;
+  .women-product {
+    width: 70%;
+  }
+}
+
+.order-btn {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.order-quantity {
+  display: block;
+  width: 100px;
+}
+
+.login-form, .signup-form {
+  width: 100%;
+}
+
+.shopping-cart {
+  width: 100%;
+}
+
 .single_top {
   display: block;
   width: 100%;
@@ -46,6 +70,44 @@
   margin-left: 80px;
   margin-bottom: 30px;
   margin-top: -20px
+}
+
+.row.content {
+  height: 550px
+}
+
+.sidenav {
+  background-color: $sidebar-background;
+  height: 100%;
+}
+
+.container-fluid {
+  width: 100%;
+}
+
+.book-price {
+  color: $error-explanation;
+}
+
+.nav-pills {
+  li {
+    background-color: $primary-color;
+    border-radius: 2px;
+    margin-bottom: 12px;
+    a {
+      color: $white;
+    }
+  }
+
+  li:hover {
+    a {
+      color: $black;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .row.content {height: auto;}
 }
 
 aside {

@@ -32,6 +32,11 @@
       </div>
       <div class="header-bottom-right">
         <% if logged_in? %>
+          <% if current_user.admin? %>
+            <div class="account">
+              <%= link_to t("admin_pages"), admin_root_path %>
+            </div>
+          <% end %>
           <div class="account">
             <%= link_to t("discount"), "#" %>
           </div>

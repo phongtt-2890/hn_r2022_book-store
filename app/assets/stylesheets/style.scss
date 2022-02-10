@@ -80,7 +80,9 @@ ul.support li a {
 }
 .header-bottom-right{
   float: right;
-  width: 37%;
+  display: flex;
+  justify-content: flex-end;
+  width: 40%;
   text-align: center;
   padding-top:1.7em;
 }
@@ -111,7 +113,7 @@ ul.support li a {
   vertical-align: middle;
 }
 ul.login{
-  float:left;
+  float:right;
   width:36%;
   margin:0;
 }
@@ -638,7 +640,7 @@ p.m_text {
 
 /*--product--*/
 /*-- start w_content --*/
-.account_grid,.register,.main{
+.account_grid,.register{
   width: 70%;
   float: right;
 }
