@@ -34,4 +34,10 @@ class ApplicationController < ActionController::Base
     flash[:danger] = t "must_login"
     redirect_to login_path
   end
+
+  def current_user_admin?
+    return false unless current_user.admin?
+
+    redirect_to admin_root_path
+  end
 end

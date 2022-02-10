@@ -10,5 +10,9 @@ Rails.application.routes.draw do
     resources :books, only: %i(show index)
     resource :carts
     resources :order_details, only: %i(create update destroy)
+
+    namespace :admin do
+      root "dashboards#home"
+    end
   end
 end
