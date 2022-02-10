@@ -5,6 +5,7 @@ class Order < ApplicationRecord
   has_many :order_details, dependent: :destroy
   has_many :books, through: :order_details
   before_save :update_total_price
+  scope :newest, ->{order created_at: :desc}
 
   private
 

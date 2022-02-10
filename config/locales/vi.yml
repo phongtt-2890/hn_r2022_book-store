@@ -100,3 +100,13 @@ vi:
       amount: "Số lượng"
       option: "Lựa chọn"
       book_info: "Thông tin sản phẩm"
+    index:
+      order_name: "Người đặt hàng"
+      address: "Địa chỉ giao hàng"
+      total_payment: "Tổng tiền thanh toán"
+      product: "Sản phẩm"
+      status: "Trạng thái"
+      option: "Lựa chọn"
+  your_orders: "Lịch sử giỏ hàng"
+  cancel_order: "Hủy đơn hàng"
+  cancel_confirm: "Bạn muốn hủy đơn hàng này?"

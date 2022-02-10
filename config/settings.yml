@@ -2,6 +2,8 @@ email_regex: !ruby/regexp /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 min_password_length: 6
 phone: "+84 999999999"
 books_per_page: 12
+orders_per_page: 5
 min_quantity: 0
-min_quantity: 1000000
+max_quantity: 1000000
 min_order_quantity: 1
+status_accepted: "accepted"
