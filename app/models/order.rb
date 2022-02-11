@@ -8,7 +8,7 @@ class Order < ApplicationRecord
 
   private
 
-  def total_price
+  def order_total_price
     order_details.map{|od| od ? calc_total(od) : 0}.sum
   end
 
@@ -17,6 +17,6 @@ class Order < ApplicationRecord
   end
 
   def update_total_price
-    self[:total_price] = total_price
+    self[:total_price] = order_total_price
   end
 end
