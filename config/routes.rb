@@ -8,12 +8,13 @@ Rails.application.routes.draw do
     delete "/logout", to: "sessions#destroy"
     resources :users, only: %i(show new create edit)
     resources :books, only: %i(show index)
-    resource :carts
+    resource :carts, only: %i(show update destroy)
     get "/orders", to: "carts#index"
     resources :order_details, only: %i(create update destroy)
 
     namespace :admin do
       root "dashboards#home"
+      resources :orders, only: %i(index update destroy)
     end
   end
 end

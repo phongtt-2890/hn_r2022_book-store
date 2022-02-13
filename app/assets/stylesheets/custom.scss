@@ -48,9 +48,6 @@
   th {
     text-align: center;
   }
-  th:first-child {
-    width:20px;
-  }
   .order-details {
     background-color: $order-info-background;
     margin: 8px;
@@ -59,6 +56,9 @@
     td {
       padding: 4px 8px;
       text-align: center;
+      .btn {
+        margin-bottom: 2px;
+      }
     }
   }
 }
@@ -167,6 +167,7 @@
     margin-bottom: 12px;
     a {
       color: $white;
+      font-weight: bold;
     }
   }
 
@@ -177,10 +178,23 @@
   }
 }
 
+.header-bottom-left {
+  width: 45% !important;
+}
+
+.header-bottom-right {
+  font-weight: bold;
+  width: 55% !important;
+}
+
 .place-order-btn {
   background-color: $primary-color;
   margin-top: 12px;
   width: 100%;
+}
+
+.admin-orders {
+  font-size: 12px;
 }
 
 @media screen and (max-width: 767px) {
@@ -212,6 +226,7 @@ aside {
     }
   }
 }
+
 .gravatar {
   float: left;
   margin-right: 10px;

@@ -1,0 +1,15 @@
+<table class="order-history admin-orders">
+  <h4><%= t "orders_list" %></h4>
+  <tr class="order-title">
+    <th class="info-title"><%= t ".order_name" %></th>
+    <th class="quantity-title"><%= t ".address" %></th>
+    <th class="option-title"><%= t ".total_payment" %></th>
+    <th class="option-title"><%= t ".product" %></th>
+    <th class="option-title"><%= t ".status" %></th>
+    <th class="option-title"><%= t ".option" %></th>
+  </tr>
+  <div class="orders-list">
+    <%= render @orders %>
+  </div>
+</table>
+<%== pagy_bootstrap_nav(@pagy) %>
