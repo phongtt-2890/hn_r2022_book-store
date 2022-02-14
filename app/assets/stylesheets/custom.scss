@@ -37,8 +37,29 @@
 .main {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   .women-product {
     width: 70%;
+  }
+}
+.order-history {
+  width: 100%;
+  table-layout: fixed;
+  th {
+    text-align: center;
+  }
+  th:first-child {
+    width:20px;
+  }
+  .order-details {
+    background-color: $order-info-background;
+    margin: 8px;
+    width: 100%;
+    border-bottom: 1px solid $black;
+    td {
+      padding: 4px 8px;
+      text-align: center;
+    }
   }
 }
 

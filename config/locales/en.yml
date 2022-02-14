@@ -100,3 +100,13 @@ en:
       amount: "Amount"
       option: "Options"
       book_info: "Book information"
+    index:
+      order_name: "Customer name"
+      address: "Delivery address"
+      total_payment: "Total Payment"
+      product: "Products"
+      status: "Status"
+      option: "Option"
+  your_orders: "Order history"
+  cancel_order: "Cancel order"
+  cancel_confirm: "Are you sure you want to cancel this order?"

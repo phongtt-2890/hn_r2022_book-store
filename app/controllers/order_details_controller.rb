@@ -10,6 +10,9 @@ class OrderDetailsController < ApplicationController
     else
       flash.now[:danger] = t "delete_fail"
     end
+    respond_to do |format|
+      format.js
+    end
   end
 
   def update
@@ -20,6 +23,9 @@ class OrderDetailsController < ApplicationController
     else
       flash.now[:danger] = t "update_fail"
     end
+    respond_to do |format|
+      format.js
+    end
   end
 
   def destroy
@@ -29,6 +35,9 @@ class OrderDetailsController < ApplicationController
       flash.now[:success] = t "success"
     else
       flash.now[:danger] = t "delete_fail"
+    end
+    respond_to do |format|
+      format.js
     end
   end
 
