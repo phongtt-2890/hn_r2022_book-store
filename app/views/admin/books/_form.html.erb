@@ -1,0 +1,56 @@
+<%= form_for [:admin, @book] do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <%= f.label :name %>
+  <%= f.text_field :name, class: "form-control" %>
+  <div class="form-row clearfix">
+    <div class="form-group col-md-4 quantity-input">
+      <%= f.label :quantity %>
+      <%= f.number_field :quantity,
+          class: "form-control", min: Settings.min_quantity, max: Settings.max_quantity%>
+    </div>
+    <div class="form-group col-md-4">
+      <%= f.label :num_pages %>
+      <%= f.number_field :num_pages, class: "form-control" %>
+      <div style="clear: both;"></div>
+    </div>
+    <div class="form-group col-md-4">
+      <%= f.label :price %>
+      <%= f.number_field :price, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-row clearfix date-input">
+    <div class="form-group col-md-4">
+      <%= f.label :publish_year %>:
+      <%= f.date_select :publish_year,
+          {:order => [:year], :start_year => 1900, :end_year => Time.now.year}, {class: "form-control"} %>
+    </div>
+    <div class="form-group col-md-4">
+      <%= f.label :publisher_id %>:
+      <%= f.select "publisher_id",
+          options_from_collection_for_select(Publisher.all, "id", "name", @book.category_id),
+          {prompt: "--select publisher--", class: "form-control"} %>
+    </div>
+    <div class="form-group col-md-4">
+      <%= f.label :category_id %>:
+      <%= f.select "category_id",
+          options_from_collection_for_select(Category.all, "id", "name", @book.category_id),
+          {prompt: "--select category--", class: "form-control"} %>
+    </div>
+  </div>
+  <div class="form-row clearfix date-input">
+    <div class="form-group col-md-4">
+      <%= f.label :authors %>:
+      <%= f.fields_for :book_authors do |book_author| %>
+        <%= render "book_author_fields", f: book_author %>
+      <% end %>
+      <div class="links">
+        <%= link_to_add_association t("add_author"), f, :book_authors %>
+      </div>
+    </div>
+  </div>
+  <div>
+    <%= f.label :description %>
+    <%= f.text_area :description, class: "form-control" %>
+  </div>
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>

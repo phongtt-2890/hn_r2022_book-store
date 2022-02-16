@@ -4,6 +4,9 @@ class OrderDetail < ApplicationRecord
 
   before_save :set_unit_price, :set_total_price
 
+  validates :order_quantity, presence: true,
+            numericality: {greater_than_or_equal_to: Settings.min_quantity}
+
   private
 
   def book_price

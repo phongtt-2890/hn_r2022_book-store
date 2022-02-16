@@ -1,0 +1,33 @@
+<tr class="order-details">
+  <td class="order-name">
+    <%= order.id %>
+  </td>
+  <td class="order-name">
+    <%= order.user.name %>
+  </td>
+  <td class="order-address">
+    <%= order.delivery_address %>
+  </td>
+  <td class="order-price">
+    <%= number_to_currency order.total_price %>
+  </td>
+  <td class="books-name">
+    <% order.order_details.includes(:book).each do |od| %>
+      <div>
+        <%= link_to od.book.name, book_path(od.book.id) %> x
+        <%= od.order_quantity %>
+      </div>
+    <% end %>
+  </td>
+  <td class="order-price">
+    <%= t order.status %>
+  </td>
+  <td>
+    <%= link_to t(".accept"), admin_order_path(id: order.id, status: Order.statuses["accepted"]),
+        method: :patch, remote: true, class: "btn btn-success" %>
+    <%= link_to t(".reject"), admin_order_path(id: order.id, status: Order.statuses["rejected"]),
+        method: :patch, remote: true, class: "btn btn-warning" %>
+    <%= link_to t(".delete"), admin_order_path(id: order.id),
+        {data: {confirm: "cancel_confirm"}, method: :delete, remote: true, class: "btn btn-danger"} %>
+  </td>
+</tr>
