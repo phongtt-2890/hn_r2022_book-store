@@ -6,6 +6,10 @@ class Order < ApplicationRecord
   has_many :books, through: :order_details
   before_save :update_total_price
   scope :newest, ->{order created_at: :desc}
+  scope :without_init_status, ->{where.not(status: statuses[:init])}
+  delegate :name, to: :user, prefix: true, allow_nil: true
+
+  validates :status, inclusion: {in: statuses.keys}
 
   private
 

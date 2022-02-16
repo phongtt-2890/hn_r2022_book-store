@@ -85,6 +85,7 @@ en:
   already_in_cart: "Products already in the cart!"
   must_login: "Must login"
   admin_pages: "Admin page"
+  overview: "Overview"
   orders: "Orders"
   products: "Products"
   users: "Users"
@@ -110,3 +111,20 @@ en:
   your_orders: "Order history"
   cancel_order: "Cancel order"
   cancel_confirm: "Are you sure you want to cancel this order?"
+  admin:
+    orders:
+      orders:
+        order_name: "Customer"
+        address: "Address"
+        total_payment: "Total payment"
+        product: "Products"
+        status: "Status"
+        option: "Option"
+      order_row:
+        accept: "Accept"
+        reject: "Reject"
+        delete: "Delete"
+  init: "Initial"
+  in_progress: "In progress"
+  accepted: "Accepted"
+  rejected: "Rejected"

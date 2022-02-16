@@ -19,11 +19,8 @@ class CartsController < ApplicationController
   end
 
   def destroy
-    if @order.status != Settings.status_accepted
-      @order.order_details.find_each do |od|
-        od.book.update! quantity: od.book.quantity + od.order_quantity
-      end
-    end
+    update_book_quantity_for_order_delete @order unless @order.status_accepted?
+
     if @order.destroy
       flash[:success] = t "success"
       respond_to do |format|
@@ -53,14 +50,6 @@ class CartsController < ApplicationController
     @order_details.find_each do |od|
       od.book.update! quantity: od.book.quantity - od.order_quantity
     end
-  end
-
-  def load_order
-    @order = Order.find_by id: params[:id]
-    return if @order
-
-    flash[:danger] = t "order_not_found"
-    redirect_to root_path
   end
 
   def load_newest_order

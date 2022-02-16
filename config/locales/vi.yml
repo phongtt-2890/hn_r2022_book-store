@@ -85,6 +85,7 @@ vi:
   already_in_cart: "Sản phẩm đã tồn tại trong giỏ hàng!"
   must_login: "Yêu cầu đăng nhập"
   admin_pages: "Trang quản trị"
+  overview: "Tổng quan"
   orders: "Đơn hàng"
   products: "Sản phẩm"
   users: "Người dùng"
@@ -110,3 +111,19 @@ vi:
   your_orders: "Lịch sử giỏ hàng"
   cancel_order: "Hủy đơn hàng"
   cancel_confirm: "Bạn muốn hủy đơn hàng này?"
+  admin:
+    orders:
+      orders:
+        order_name: "Người đặt hàng"
+        address: "Dịa chỉ giao hàng"
+        total_payment: "Tổng thanh toán"
+        product: "Sản phẩm"
+        status: "Trạng thái"
+        option: "Lựa chọn"
+        accept: "Chấp nhận"
+        reject: "Từ chối"
+        delete: "Xóa"
+  init: "Khởi tạo"
+  in_progress: "Đang xử lý"
+  accepted: "Chấp nhận"
+  rejected: "Từ chối"
