@@ -30,7 +30,7 @@ RSpec.describe User, type: :model do
   end
 
   describe "class methods" do
-    context ".digest" do
+    describe ".digest" do
       it "should return passord diget" do
         ActiveModel::SecurePassword.min_cost = false
         expect User.digest("password") != nil
@@ -42,7 +42,7 @@ RSpec.describe User, type: :model do
       end
     end
 
-    context ".new_token" do
+    describe ".new_token" do
       it "should return new token" do
         expect User.new_token != nil
       end
