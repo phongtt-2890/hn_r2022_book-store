@@ -2,16 +2,16 @@ class User < ApplicationRecord
   before_save :downcase_email
   attr_accessor :remember_token
 
-  has_many :user_discounts, dependent: :destroy
-  has_many :discounts, through: :user_discounts
   has_many :addresses, dependent: :destroy
   has_many :orders, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :rates, dependent: :destroy
 
-  validates :name, presence: true
+  validates :name, presence: true,
+    length: {maximum: Settings.max_256_digest}
   validates :email, presence: true, uniqueness: {case_sensitive: true},
-    format: {with: Settings.email_regex}
+    format: {with: Settings.email_regex},
+    length: {maximum: Settings.max_256_digest}
   validates :password, presence: true,
     length: {minimum: Settings.min_password_length}, if: :password
   has_secure_password
