@@ -30,6 +30,7 @@ gem "webpacker", "~> 5.0"
 group :development, :test do
   gem "database_cleaner"
   gem "factory_bot_rails"
+  gem "rails-controller-testing"
   gem "pry", "~>0.14.0"
   gem "rspec-rails", "~> 4.0.1"
   gem "rubocop", "~> 0.74.0", require: false
