@@ -1,5 +1,5 @@
 class CartsController < ApplicationController
-  before_action :check_logged_in, only: %i(show)
+  before_action :authenticate_user!, only: %i(show)
   before_action :load_current_order, :load_order_details, only: %i(show update)
   before_action :load_order, only: %i(destroy)
   before_action :load_newest_order, only: %i(index destroy)

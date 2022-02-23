@@ -1,11 +1,6 @@
 Rails.application.routes.draw do
   scope "(:locale)", locale: /en|vi/ do
     root "home_pages#home"
-    get "/signup", to: "users#new"
-    post "/signup", to: "users#create"
-    get "/login", to: "sessions#new"
-    post "/login", to: "sessions#create"
-    delete "/logout", to: "sessions#destroy"
     resources :users, only: %i(show new create edit)
     resources :books, only: %i(show index)
     resource :carts, only: %i(show update destroy)
@@ -16,6 +11,14 @@ Rails.application.routes.draw do
       root "dashboards#home"
       resources :orders, only: %i(index update destroy)
       resources :books
+    end
+
+    devise_for :users, path: "auth"
+    as :user do
+      get "/login", to: "devise/sessions#new"
+      post "/login", to: "devise/sessions#create"
+      get "/signup", to: "devise/registrations#new"
+      delete "/logout", to: "devise/sessions#destroy"
     end
   end
 end

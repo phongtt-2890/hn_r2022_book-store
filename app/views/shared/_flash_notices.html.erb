@@ -1,5 +1,3 @@
 <div id="flash_messages">
-  <% flash.each do |message_type, message| %>
-    <div class="alert alert-<%= message_type %>"><%= message %></div>
-  <% end %>
+  <%= toastr_flash.html_safe %>
 </div>

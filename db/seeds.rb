@@ -41,9 +41,7 @@ User.create!(name: "Admin",
   password: "123123",
   password_confirmation: "123123",
   phone: Faker::PhoneNumber.phone_number,
-  admin: true,
-  activated: true,
-  activated_at: Time.zone.now)
+  admin: true)
 
 50.times do |n|
   name = Faker::Name.name
@@ -53,9 +51,7 @@ User.create!(name: "Admin",
                email: email,
                password: password,
                password_confirmation: password,
-               phone: Faker::PhoneNumber.phone_number,
-               activated: true,
-               activated_at: Time.zone.now
+               phone: Faker::PhoneNumber.phone_number
   )
 end
 
