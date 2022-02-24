@@ -6,6 +6,7 @@ RSpec.describe UsersController, type: :controller do
       let(:user) {FactoryBot.create :user}
 
       before do
+        sign_in user
         get :show, params: {locale: I18n.locale, id: user.id}
       end
 
@@ -15,46 +16,9 @@ RSpec.describe UsersController, type: :controller do
     end
 
     context "when params id invalid" do
-      it "should redirect to root" do
+      it "should redirect to login" do
         get :show, params: {locale: I18n.locale, id: -1}
-        expect(response).to redirect_to root_path
-      end
-    end
-  end
-
-  describe "GET #new" do
-    it "should render new" do
-      get :new
-      expect(response).to render_template(:new)
-    end
-  end
-
-  describe "POST #create" do
-    context "when valid params" do
-      let(:user) {FactoryBot.attributes_for :user}
-      before do
-        post :create, params: {locale: I18n.locale, user: user}
-      end
-
-      it "should display success flash after create" do
-        expect(flash[:success]).to eq I18n.t("create_user_success")
-      end
-
-      it "should redirect_to user" do
-        expect(response).to redirect_to root_path
-      end
-    end
-
-    context "when invalid params" do
-      before do
-        post :create, params: {locale: I18n.locale, user: {name: "", email: ""}}
-      end
-      it "should display fail flash after create" do
-        expect(flash[:danger]).to eq I18n.t("create_user_fail")
-      end
-
-      it "should rerender new template" do
-        expect(response).to render_template(:new)
+        expect(response).to redirect_to new_user_session_path
       end
     end
   end

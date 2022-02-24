@@ -4,8 +4,8 @@ FactoryBot.define do
     email{Faker::Internet.email.downcase}
     phone{Faker::PhoneNumber.cell_phone}
     admin{false}
-    activated{false}
-    remember_digest{User.digest("remember_token")}
+    confirmation_token{"confirm"}
+    confirmed_at {DateTime.now}
     password{"password"}
     password_confirmation{"password"}
   end
