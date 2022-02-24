@@ -52,9 +52,13 @@
                 <b class="caret"></b>
               </a>
               <ul class="dropdown-menu" id="account-options">
-                <li><%= link_to t("profile"), current_user %></li>
+                <% if can? :update, User %>
+                  <li><%= link_to t("profile"), current_user %></li>
+                <% end %>
                 <li><%= link_to t("your_orders"), orders_path %></li>
-                <li><%= link_to t("setting"), edit_user_registration_path %></li>
+                <% if can? :update, User %>
+                  <li><%= link_to t("setting"), edit_user_registration_path %></li>
+                <% end %>
                 <li>
                   <%= link_to t("log_out"), logout_path, method: :delete %>
                 </li>

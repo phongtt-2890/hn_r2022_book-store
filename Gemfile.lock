@@ -75,6 +75,7 @@ GEM
       autoprefixer-rails (>= 5.2.1)
       sassc (>= 2.0.0)
     builder (3.2.4)
+    cancancan (3.3.0)
     capybara (3.36.0)
       addressable
       matrix
@@ -362,6 +363,7 @@ DEPENDENCIES
   bcrypt (= 3.1.13)
   bootsnap (>= 1.4.4)
   bootstrap-sass (= 3.4.1)
+  cancancan
   capybara (>= 3.26)
   cocoon
   config
