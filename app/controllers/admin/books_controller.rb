@@ -1,6 +1,6 @@
 class Admin::BooksController < Admin::AdminController
-  before_action :load_book, only: %i(edit destroy update)
   before_action :load_newest_books, only: %i(index destroy)
+  load_authorize_resource
 
   def index; end
 
@@ -50,14 +50,6 @@ class Admin::BooksController < Admin::AdminController
           .permit(:name, :description, :num_pages, :price,
                   :puslish_year, :quantity, :publisher_id, :category_id,
                   book_authors_attributes: [:id, :author_id, :_destroy])
-  end
-
-  def load_book
-    @book = Book.find_by id: params[:id]
-    return if @book
-
-    flash[:danger] = t "book_not_found"
-    redirect_to admin_books_path
   end
 
   def load_newest_books

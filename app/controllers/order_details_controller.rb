@@ -2,6 +2,7 @@ class OrderDetailsController < ApplicationController
   before_action :current_order, only: %i(create update destroy)
   before_action :load_order_details, only: %i(update destroy)
   before_action :exist_order_detail, only: %i(create)
+  authorize_resource
 
   def create
     @order_detail = @current_order.order_details.new order_detail_params

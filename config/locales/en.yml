@@ -149,3 +149,4 @@ en:
   books_list: "Books list"
   new_book: "New book"
   no_item_in_cart: "There are no items in your shopping cart. Please add some items to your cart."
+  not_permission: "You don't have permission!"

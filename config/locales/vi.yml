@@ -149,3 +149,4 @@ vi:
   books_list: "Danh sách sản phẩm"
   new_book: "Thêm mới sách"
   no_item_in_cart: "Không có sản phẩm nào trong giỏ hàng!"
+  not_permission: "Không có quyền truy cập!"

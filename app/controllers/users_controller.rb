@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, :load_user, only: %i(show)
+  before_action :authenticate_user!
+  load_and_authorize_resource
 
   def show; end
 
