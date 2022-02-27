@@ -21,5 +21,8 @@ Rails.application.routes.draw do
       delete "/logout", to: "devise/sessions#destroy"
     end
     get "/search_books", to: "home_pages#home"
+
+    mount API::Base, at: "/"
+    mount GrapeSwaggerRails::Engine, at: "/documentation"
   end
 end
