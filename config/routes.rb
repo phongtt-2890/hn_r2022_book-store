@@ -20,5 +20,6 @@ Rails.application.routes.draw do
       get "/signup", to: "devise/registrations#new"
       delete "/logout", to: "devise/sessions#destroy"
     end
+    get "/search_books", to: "home_pages#home"
   end
 end

@@ -1,11 +1,37 @@
 <table class="order-history admin-orders">
   <h4><%= t "orders_list" %></h4>
+  <div>
+    <%= search_form_for @search, url: admin_orders_path, class: "form-inline" do |f| %>
+      <div class="form-group col-md-4">
+          <%= f.label :total_price_gteq, t("price_greater_than") %>
+          <%= f.number_field :total_price_gteq, class: "form-control" %><br>
+      </div>
+      <div class="form-group col-md-4">
+          <%= f.label :total_price_lteq, t("price_less_than") %>
+          <%= f.number_field :total_price_lteq, class: "form-control" %><br>
+      </div>
+      <div class="form-group col-md-4">
+        <%= f.label  t("create_date") %>
+        <%= f.date_field :created_at_eq, value: "%Y/%D/%M", class: "form-control" %><br>
+      </div>
+      <div class="form-group col-md-4">
+        <%= f.label  t("status") %>
+        <%= f.select :status_eq,
+          options_from_collection_for_select(Order.statuses, "pop", "shift"),
+          {prompt: t("status"), class: "form-control"} %>
+      </div>
+      <div>
+        <%= f.submit t("search"), class: "btn btn-default search-btn" %>
+      </div>
+    <% end %>
+    <div class="clearfix">
+  </div>
   <tr class="order-title">
-    <th class="info-title"><%= t ".order_name" %></th>
+    <th class="info-title"><%= sort_link @search, :user_name, t(".order_name") %></th>
     <th class="quantity-title"><%= t ".address" %></th>
-    <th class="option-title"><%= t ".total_payment" %></th>
+    <th class="option-title"><%= sort_link @search, :total_price, t(".total_payment") %></th>
     <th class="option-title"><%= t ".product" %></th>
-    <th class="option-title"><%= t ".status" %></th>
+    <th class="option-title"><%= sort_link @search, :status, t(".status") %></th>
     <th class="option-title"><%= t ".option" %></th>
   </tr>
   <div class="orders-list">

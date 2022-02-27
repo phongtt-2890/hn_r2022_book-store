@@ -23,4 +23,9 @@ class Book < ApplicationRecord
 
   accepts_nested_attributes_for :book_authors, reject_if: :all_blank,
                                 allow_destroy: true
+
+  ransack_alias :book, :name_or_description_or_publisher_name
+  ransacker :created_at do
+    Arel.sql("date(created_at)")
+  end
 end
