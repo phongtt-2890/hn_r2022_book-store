@@ -2,6 +2,20 @@
 @import "bootstrap";
 @import "colors";
 @import "toastr/toastr";
+@import "font-awesome";
+
+.red-asterisk {
+  color: $red;
+}
+
+.book-img {
+  height: 168px;
+}
+
+.container.admin-layout {
+  width: 100%;
+  padding: 0;
+}
 
 .required::after {
   content: " *";
@@ -37,6 +51,12 @@
     li {
       width: 100%;
     }
+  }
+}
+
+.new-book-path {
+  a {
+    color: $primary-color;
   }
 }
 
