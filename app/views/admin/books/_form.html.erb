@@ -1,20 +1,20 @@
 <%= form_for [:admin, @book] do |f| %>
   <%= render "shared/error_messages", object: f.object %>
-  <%= f.label :name %>
+  <%= f.label :name, class: "required" %>
   <%= f.text_field :name, class: "form-control" %>
   <div class="form-row clearfix">
     <div class="form-group col-md-4 quantity-input">
-      <%= f.label :quantity %>
+      <%= f.label :quantity, class: "required" %>
       <%= f.number_field :quantity,
           class: "form-control", min: Settings.min_quantity, max: Settings.max_quantity%>
     </div>
     <div class="form-group col-md-4">
-      <%= f.label :num_pages %>
+      <%= f.label :num_pages, class: "required" %>
       <%= f.number_field :num_pages, class: "form-control" %>
       <div style="clear: both;"></div>
     </div>
     <div class="form-group col-md-4">
-      <%= f.label :price %>
+      <%= f.label :price, class: "required" %>
       <%= f.number_field :price, class: "form-control" %>
     </div>
   </div>
@@ -25,13 +25,13 @@
           {:order => [:year], :start_year => 1900, :end_year => Time.now.year}, {class: "form-control"} %>
     </div>
     <div class="form-group col-md-4">
-      <%= f.label :publisher_id %>:
+      <%= f.label :publisher_id, class: "required" %>:
       <%= f.select "publisher_id",
           options_from_collection_for_select(Publisher.all, "id", "name", @book.category_id),
           {prompt: "--select publisher--", class: "form-control"} %>
     </div>
     <div class="form-group col-md-4">
-      <%= f.label :category_id %>:
+      <%= f.label :category_id, class: "required" %>:
       <%= f.select "category_id",
           options_from_collection_for_select(Category.all, "id", "name", @book.category_id),
           {prompt: "--select category--", class: "form-control"} %>
@@ -48,6 +48,9 @@
       </div>
     </div>
   </div>
+  <span class="image">
+    <%= f.file_field :image %>
+  </span>
   <div>
     <%= f.label :description %>
     <%= f.text_area :description, class: "form-control" %>

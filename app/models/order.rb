@@ -24,4 +24,8 @@ class Order < ApplicationRecord
   def update_total_price
     self[:total_price] = order_total_price
   end
+
+  ransacker :created_at do
+    Arel.sql("date(created_at)")
+  end
 end

@@ -1,5 +1,5 @@
 class Admin::OrdersController < Admin::AdminController
-  before_action :load_newest_order, only: %i(index destroy update)
+  before_action :load_and_search_orders, only: %i(index update destroy)
   load_and_authorize_resource
 
   def index; end
@@ -7,6 +7,7 @@ class Admin::OrdersController < Admin::AdminController
   def update
     ActiveRecord::Base.transaction do
       @order.public_send("status_#{params[:status]}!")
+      flash[:success] = t "success"
     end
   rescue ActiveRecord::RecordInvalid
     flash[:danger] = t "update_fail"
@@ -28,8 +29,9 @@ class Admin::OrdersController < Admin::AdminController
 
   private
 
-  def load_newest_order
-    @pagy, @orders = pagy Order.without_init_status.newest,
+  def load_and_search_orders
+    @search = Order.ransack params[:q]
+    @pagy, @orders = pagy @search.result.without_init_status.newest,
                           items: Settings.orders_per_page
   end
 end

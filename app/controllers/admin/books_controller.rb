@@ -1,6 +1,6 @@
 class Admin::BooksController < Admin::AdminController
-  before_action :load_newest_books, only: %i(index destroy)
-  load_authorize_resource
+  before_action :load_and_search_books, only: %i(index destroy)
+  load_and_authorize_resource
 
   def index; end
 
@@ -52,7 +52,9 @@ class Admin::BooksController < Admin::AdminController
                   book_authors_attributes: [:id, :author_id, :_destroy])
   end
 
-  def load_newest_books
-    @pagy, @books = pagy Book.newest, items: Settings.books_per_page
+  def load_and_search_books
+    @search = Book.ransack params[:q]
+    @pagy, @books = pagy @search.result.newest,
+                         items: Settings.books_per_page
   end
 end

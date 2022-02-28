@@ -2,12 +2,36 @@
 <div class="women-product">
   <div class=" w_content">
     <div class="women">
-      <a href="#"><h4> <%= link_to t("products_list"), "#" %> </h4></a>
+      <a href="#">
+        <h4> <%= link_to t("products_list"), "#" %>
+        <div class="search-form">
+            <%= search_form_for @search, url: "search_books", class: "form-inline" do |f| %>
+              <div class="form-group col-md-4">
+                  <%= f.label :book_cont, t("book_info") %>
+                    <%= f.text_field :book_cont, class: "form-control" %><br>
+                </div>
+                <div class="form-group col-md-4">
+                    <%= f.label :price_gteq, t("price_greater_than") %>
+                    <%= f.number_field :price_gteq, class: "form-control" %><br>
+                </div>
+                <div class="form-group col-md-4">
+                    <%= f.label :price_lteq, t("price_less_than") %>
+                    <%= f.number_field :price_lteq, class: "form-control" %><br>
+                </div>
+                <div class="form-group col-md-4">
+                  <%= f.label  t("create_date") %>
+                  <%= f.date_field :created_at_eq, value: "%Y/%D/%M", class: "form-control" %><br>
+                </div>
+                <%= f.submit t("search"), class: "btn btn-default search-btn" %>
+              <% end %>
+          </div>
+        </h4>
+      </a>
       <ul class="w_nav">
         <li><%= t "sort" %> </li>
         <li><%= link_to t("popular"), "#" %></li> |
-        <li><%= link_to t("new"), "#" %></li> |
-        <li><%= link_to t("price"), "#" %></li>
+        <%= sort_link @search, :publish_year, t("new") %> </th> |
+        <%= sort_link @search, :price, t("price") %> </th>
         <div class="clearfix"> </div>
       </ul>
       <div class="clearfix"> </div>

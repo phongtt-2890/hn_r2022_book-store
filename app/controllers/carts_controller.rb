@@ -12,6 +12,8 @@ class CartsController < ApplicationController
     ActiveRecord::Base.transaction do
       update_order
       update_book_quantity_for_order_delivery
+      flash[:success] = t "success"
+      redirect_to orders_path
     end
   rescue ActiveRecord::RecordInvalid
     flash.now[:danger] = t "update_fail"
