@@ -1,12 +1,36 @@
 <table class="order-history admin-orders">
   <h4><%= t "books_list" %></h4>
+  <div>
+    <%= search_form_for @search, url: admin_books_path, class: "form-inline" do |f| %>
+      <div class="form-group col-md-4">
+          <%= f.label :book_cont, t("book_info") %>
+            <%= f.text_field :book_cont, class: "form-control" %><br>
+        </div>
+        <div class="form-group col-md-4">
+            <%= f.label :price_gteq, t("price_greater_than") %>
+            <%= f.number_field :price_gteq, class: "form-control" %><br>
+        </div>
+        <div class="form-group col-md-4">
+            <%= f.label :price_lteq, t("price_less_than") %>
+            <%= f.number_field :price_lteq, class: "form-control" %><br>
+        </div>
+        <div class="form-group col-md-4">
+          <%= f.label  t("create_date") %>
+          <%= f.date_field :created_at_eq, value: "%Y/%D/%M", class: "form-control" %><br>
+        </div>
+        <div>
+          <%= f.submit t("search"), class: "btn btn-default search-btn" %>
+        </div>
+    <% end %>
+    <div class="clearfix">
+  </div>
   <h4><%= link_to t("new_book"), new_admin_book_path %></h4>
   <tr class="order-title">
-    <th class="info-title"><%= t ".book_name" %></th>
-    <th class="quantity-title"><%= t ".quantity" %></th>
-    <th class="quantity-title"><%= t ".publish_year" %></th>
-    <th class="option-title"><%= t ".price" %></th>
-    <th class="option-title"><%= t ".num_pages" %></th>
+    <th class="info-title"><%= sort_link @search, :name, t(".book_name") %></th>
+    <th class="info-title"><%= sort_link @search, :quantity, t(".quantity") %></th>
+    <th class="info-title"><%= sort_link @search, :publish_year, t(".publish_year") %></th>
+    <th class="info-title"><%= sort_link @search, :price, t(".price") %></th>
+    <th class="info-title"><%= sort_link @search, :num_pages, t(".num_pages") %></th>
     <th class="option-title"><%= t ".authors" %></th>
     <th class="option-title"><%= t ".option" %></th>
   </tr>

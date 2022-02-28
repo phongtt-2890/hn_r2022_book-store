@@ -1,6 +1,7 @@
 class HomePagesController < ApplicationController
   def home
-    @pagy, @books = pagy Book.newest, items: Settings.books_per_page
+    @search = Book.ransack params[:q]
+    @pagy, @books = pagy @search.result, items: Settings.books_per_page
   end
 
   def help; end
