@@ -1,4 +1,5 @@
 class Order < ApplicationRecord
+  after_commit :send_mail, on: :update
   enum status: {init: 0, in_progress: 1,
                 accepted: 2, rejected: 3}, _prefix: true
   belongs_to :user
@@ -27,5 +28,11 @@ class Order < ApplicationRecord
 
   ransacker :created_at do
     Arel.sql("date(created_at)")
+  end
+
+  def send_mail
+    OrderMailer.order_accepted(user).deliver_later if accepted?
+
+    OrderMailer.order_rejected(user).deliver_later
   end
 end

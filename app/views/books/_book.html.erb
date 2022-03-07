@@ -1,8 +1,8 @@
 <div class="product-grid">
   <div class="content_box">
     <a href="single.html">
-      <div class="left-grid-view grid-view-left">
-        <%= link_to image_tag("pic1.jpg", alt: "product", class: "img-responsive watch-right"), book_path(book.id) %>
+      <div class="left-grid-view grid-view-left book-img">
+        <%= link_to presence_image?(book), book_path(book.id) %>
       </div>
     </a>
       <h4 class="book-title"><%= link_to book.name, book_path(book.id) %></h4>

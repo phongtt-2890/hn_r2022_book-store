@@ -3,7 +3,7 @@
     <div class="grid images_3_of_2">
       <ul id="product-image">
         <li>
-          <%= image_tag("pic1.jpg", class: "img-responsive") %>
+          <%= link_to presence_image?(@book), book_path(@book.id) %>
         </li>
       </ul>
     </div>
