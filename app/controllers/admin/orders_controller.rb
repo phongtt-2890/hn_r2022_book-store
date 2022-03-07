@@ -7,6 +7,7 @@ class Admin::OrdersController < Admin::AdminController
   def update
     ActiveRecord::Base.transaction do
       @order.public_send("status_#{params[:status]}!")
+      flash[:success] = t "success"
     end
   rescue ActiveRecord::RecordInvalid
     flash[:danger] = t "update_fail"

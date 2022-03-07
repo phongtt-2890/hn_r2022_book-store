@@ -20,11 +20,13 @@
     <%= t order.status %>
   </td>
   <td>
-    <%= link_to t(".accept"), admin_order_path(id: order.id, status: Settings.status_accepted),
+
+    <%= link_to fa_icon("solid check"), admin_order_path(id: order.id, status: Settings.status_accepted),
         method: :patch, remote: true, class: "btn btn-success" %>
-    <%= link_to t(".reject"), admin_order_path(id: order.id, status: Settings.status_rejected),
+    <%= link_to fa_icon("times-circle"), admin_order_path(id: order.id, status: Settings.status_rejected),
         method: :patch, remote: true, class: "btn btn-warning" %>
-    <%= link_to t(".delete"), admin_order_path(id: order.id),
-        {data: {confirm: "cancel_confirm"}, method: :delete, remote: true, class: "btn btn-danger"} %>
+        <i class="fa-regular fa-circle-trash"></i>
+    <%= link_to fa_icon("trash"), admin_order_path(id: order.id),
+        {data: {confirm: "delete_confirm"}, method: :delete, remote: true, class: "btn btn-danger"} %>
   </td>
 </tr>

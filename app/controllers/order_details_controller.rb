@@ -9,7 +9,7 @@ class OrderDetailsController < ApplicationController
     if @current_order.save
       flash.now[:success] = t "success"
     else
-      flash.now[:danger] = t "delete_fail"
+      flash.now[:danger] = t "update_fail"
     end
     respond_to do |format|
       format.js
@@ -63,7 +63,11 @@ class OrderDetailsController < ApplicationController
                                               order_id: current_order.id
     return unless exist_order
 
-    flash[:danger] = t "already_in_cart"
+    new_quantity = exist_order.order_quantity +
+                   order_detail_params[:order_quantity].to_i
+    exist_order.update_attribute :order_quantity, new_quantity
+    @current_order.save
+    flash[:success] = t "already_in_cart"
     redirect_to carts_path
   end
 end

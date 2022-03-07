@@ -24,7 +24,7 @@
     <% end %>
     <div class="clearfix">
   </div>
-  <h4><%= link_to t("new_book"), new_admin_book_path %></h4>
+  <h4 class="new-book-path" ><%= link_to fa_icon("plus") << " " << t("new_book"), new_admin_book_path%></h4>
   <tr class="order-title">
     <th class="info-title"><%= sort_link @search, :name, t(".book_name") %></th>
     <th class="info-title"><%= sort_link @search, :quantity, t(".quantity") %></th>

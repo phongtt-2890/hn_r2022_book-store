@@ -3,6 +3,11 @@
 @import "colors";
 @import "toastr/toastr";
 
+.required::after {
+  content: " *";
+  color: $red;
+}
+
 .pagy-bootstrap-nav {
   width: 100%;
   text-align: center;
