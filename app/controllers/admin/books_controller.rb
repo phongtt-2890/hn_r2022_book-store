@@ -11,6 +11,7 @@ class Admin::BooksController < Admin::AdminController
   def create
     @book = Book.new book_params
     @book.publish_year = DateTime.new(params[:book]["publish_year(1i)"].to_i)
+    attach_image
     if @book.save
       flash[:success] = "Book created successfully"
       redirect_to admin_books_path
@@ -47,7 +48,7 @@ class Admin::BooksController < Admin::AdminController
 
   def book_params
     params.require(:book)
-          .permit(:name, :description, :num_pages, :price,
+          .permit(:name, :description, :num_pages, :price, :image,
                   :puslish_year, :quantity, :publisher_id, :category_id,
                   book_authors_attributes: [:id, :author_id, :_destroy])
   end
@@ -56,5 +57,11 @@ class Admin::BooksController < Admin::AdminController
     @search = Book.ransack params[:q]
     @pagy, @books = pagy @search.result.newest,
                          items: Settings.books_per_page
+  end
+
+  def attach_image
+    return if params.dig(:book, :image).blank?
+
+    @book.image.attach params.dig(:book, :image)
   end
 end

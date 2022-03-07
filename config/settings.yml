@@ -9,3 +9,5 @@ max_quantity: 1000000
 min_order_quantity: 1
 status_accepted: "accepted"
 status_rejected: "rejected"
+max_image_size: 5
+image_type: ["image/jpeg", "image/gif", "image/png"]
